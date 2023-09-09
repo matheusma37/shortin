@@ -1,0 +1,39 @@
+---
+version: '3.3'
+services:
+  shortin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: shortin
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    environment:
+      POSTGRESQL_HOST: postgres
+      POSTGRESQL_USER: postgres
+      POSTGRESQL_PASSWORD: postgres
+      BUNDLE_PATH: /bundle/vendor
+    volumes:
+      - .:/app
+      - bashhistory:/root/hist
+      - bundle_path:/bundle
+  postgres:
+    image: postgres:11
+    hostname: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    logging:
+      driver: none
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  bashhistory:
+  bundle_path:
+  postgres-data:
