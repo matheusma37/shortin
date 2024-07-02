@@ -16,10 +16,13 @@ gem 'tzinfo-data'
 
 group :development, :test do
   gem 'debug'
-  gem 'factory_bot_rails'
   gem 'pry'
-  gem 'rspec-rails'
   gem 'rubocop-rails', require: false
+end
+
+group :test do
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
 end
 
 group :development do
