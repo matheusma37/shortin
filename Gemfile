@@ -22,6 +22,7 @@ end
 
 group :test do
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 
