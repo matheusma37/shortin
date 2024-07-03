@@ -2,9 +2,7 @@
 version: '3.3'
 services:
   shortin:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     hostname: shortin
     ports:
       - 3000:3000
